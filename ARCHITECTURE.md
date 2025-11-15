@@ -79,22 +79,24 @@ Each room holds:
   state: DrawingState(),
   sockets: Map<WebSocket, Meta>
 }
+```
 User meta:
 
-js
-Copy code
+```js
+
 {
   userId: "u_xxx",
   name: "Alice",
   color: "#ff0033"
 }
+```
 drawing-state.js
 Stores drawing strokes in memory.
 
 A stroke object:
 
-js
-Copy code
+```js
+
 {
   id: "s_123",
   userId: "u_ab12",
@@ -104,7 +106,7 @@ Copy code
   width: 4,
   points: [ { x, y }, { x, y }, ... ]
 }
-
+```
 🔌 WebSocket Message Architecture
 | Type               | Description                          |
 | ------------------ | ------------------------------------ |
