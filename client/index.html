@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Realtime Whiteboard - Minimal</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <header class="top-nav">
+    <div class="nav-left">
+      <div class="logo">⚪ Whiteboard</div>
+    </div>
+
+    <div class="nav-center">
+      <div id="boardTitle" class="board-title" contenteditable="true">Untitled Board</div>
+    </div>
+
+    <div class="nav-right">
+      <input id="createRoomInput" class="input room-input" placeholder="Create room name" />
+      <button id="createRoomBtn" class="btn small">Create Room</button>
+
+      <input id="joinRoomInput" class="input room-input" placeholder="Join room id" />
+      <button id="joinRoomBtn" class="btn small">Join Room</button>
+
+      <div id="connStatus" class="status status-disconnected">Disconnected</div>
+    </div>
+  </header>
+
+  <div class="app-grid">
+    <main class="workspace">
+      <div class="toolbar top-toolbar">
+        <div class="tool-group">
+          <button id="toolPen" class="btn">Pen</button>
+          <button id="toolEraser" class="btn">Eraser</button>
+          <select id="brushSelect">
+            <option value="pen">Pen</option>
+            <option value="marker">Marker</option>
+            <option value="pencil">Pencil</option>
+          </select>
+          <input id="colorPicker" type="color" value="#000000" />
+          <input id="brushSize" type="range" min="1" max="40" value="4" />
+          <button id="undoBtn" class="btn">Undo</button>
+          <button id="clearBtn" class="btn danger">Clear</button>
+          <button id="exportBtn" class="btn">Export</button>
+        </div>
+      </div>
+
+      <div id="canvasWrap" class="canvas-wrap">
+        <canvas id="board"></canvas>
+        <div id="miniMap" class="minimap">Mini</div>
+      </div>
+
+      <div class="toolbar bottom-toolbar">
+        <div class="tool-group">
+          <div id="zoomLabel">100%</div>
+        </div>
+      </div>
+    </main>
+
+    <aside id="rightSidebar" class="sidebar right">
+      <div class="panel-header">Online (<span id="userCount">0</span>)</div>
+      <ul id="userList" class="user-list"></ul>
+    </aside>
+  </div>
+
+  <script src="./websocket.js"></script>
+  <script src="./canvas.js"></script>
+  <script src="./main.js"></script>
+</body>
+</html>
