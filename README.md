@@ -55,26 +55,27 @@ Below are preview screenshots of the **Realtime Collaborative Whiteboard** inter
 ```bash
 git clone <your-repo-url>
 cd realtime-whiteboard
-
-Install dependencies
-
+```
+2. Install dependencies
+```bash
 npm install
+```
 
 
-Create .env in project root:
-
+3. Create .env in project root:
+```bash
 PORT=3000
+```
 
-
-Start server
-
+4. Start server
+```bash
 npm start
+```
 
-
-Open the app in your browser:
-
+5. Open the app in your browser:
+```bash
 http://localhost:3000
-
+```
 🧪 How to Use (Quick Start)
 1. Open two tabs (or two devices)
 
@@ -129,39 +130,40 @@ All messages are JSON. Client ↔ Server messages are short and predictable.
 Client → Server
 
 join
+```bash
 
 { "type": "join", "payload": { "roomId": "room1", "userId": "u_ab12", "name": "Alice", "color": "#3b82f6" } }
-
+```
 
 draw
-
+```bash
 { "type": "draw", "payload": { "stroke": { "id":"s1","userId":"u_ab12","tool":"pen","shape":"none","color":"#000","width":4,"points":[{"x":10,"y":10}, ...] } } }
-
+```
 
 undo
-
+```bash
 { "type": "undo", "payload": {} }
-
+```
 
 clear
-
+```bash
 { "type": "clear", "payload": {} }
-
+```
 
 request-sync
-
+```bash
 { "type": "request-sync", "payload": {} }
-
+```
 
 request-presence
-
+```bash
 { "type": "request-presence", "payload": {} }
-
+```
 
 meta-update
-
+```bash
 { "type": "meta-update", "payload": { "name": "Bob", "color": "#ef4444" } }
-
+```
 Server → Client
 
 sync-state — sends { strokes: [...] }
@@ -193,9 +195,9 @@ I cannot draw
 Open DevTools (F12) → Console. Look for errors such as Cannot read property 'getContext' (canvas missing) or script 404s.
 
 Run in Console to inspect canvas size:
-
+```bash
 document.getElementById('board').getBoundingClientRect()
-
+```
 
 Width/height must be > 0.
 
@@ -224,10 +226,10 @@ If you see any red errors in Console or errors in terminal, paste them here and 
 ✅ Development & Debugging Tips
 
 Run server with a process manager (e.g., nodemon) for hot reload:
-
+```bash
 npm install -g nodemon
 nodemon server/server.js
-
+```
 
 Add console.log in server/server.js message handler to inspect incoming payloads fast.
 
@@ -267,4 +269,4 @@ This project is released under the MIT License — free for personal & education
 
 🙏 Credits
 
-Created by Visha — built with ❤️ using Node.js, Express, WebSockets, and the Canvas API.
+Created by Vishal — built with ❤️ using Node.js, Express, WebSockets, and the Canvas API.
